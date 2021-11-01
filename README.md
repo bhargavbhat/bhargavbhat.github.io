@@ -1,2 +1,0 @@
-# bhargavbhat.github.io
-Homepage

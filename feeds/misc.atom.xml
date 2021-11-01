@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Bhargav's Homepage - misc</title><link href="/" rel="alternate"></link><link href="/feeds/misc.atom.xml" rel="self"></link><id>/</id><updated>2012-08-15T09:17:00+05:30</updated><entry><title>Intro to vim - Session 1 Notes</title><link href="/intro-to-vim-session-1-notes.html" rel="alternate"></link><published>2012-08-15T09:17:00+05:30</published><updated>2012-08-15T09:17:00+05:30</updated><author><name>Bhargav Bhat</name></author><id>tag:None,2012-08-15:/intro-to-vim-session-1-notes.html</id><summary type="html">&lt;p&gt;Notes from 1st Session of introduction to vim&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;em&gt;This is a collection of notes and paraphrasing of Q&amp;amp;A from the 3 sessions of approx 45mins each. These sessions covered the basics of vim, presented over the last few weeks to team members and other interested colleagues. The focus of these sessions was more on improving day to day work efficiency with vim&lt;/em&gt;&lt;/p&gt;
+&lt;h4&gt;Introduction&lt;/h4&gt;
+&lt;p&gt;vim is an open-source, multi-platform text editor with various advanced features. The main selling point of vim is that once you've learnt the editor and its various modes, options and commands, you can use it to process all kinds of text files, not just code &amp;amp; configuration. Many people use vim to write/edit email and documents also. vim is extensible and can be configured to help with text editing tasks of all sorts of things. eg: documentation in markdown (with shortcut for previewing in browser), plugin for plantUML previews and similar.&lt;/p&gt;
+&lt;h4&gt;Installation&lt;/h4&gt;
+&lt;p&gt;vim can be installed via PeaCy on Windows or with &lt;code&gt;apt-get&lt;/code&gt; on Ubuntu. The low-foot print simulator images and build servers have &lt;code&gt;vi&lt;/code&gt; which is a lesser featured cousin of vim already for quick editing tasks such as tweaking config files and such.&lt;/p&gt;
+&lt;h4&gt;Customization&lt;/h4&gt;
+&lt;p&gt;vim can be customized via the &lt;code&gt;vimrc&lt;/code&gt; file, which determines the behaviour of the editor, the syntax highlighting and plugins available as well as general features such as keyboard-shortcuts (which vim names as keybindings). vim is extermely customizable and it wouldn't be possible to cover all the options and settings available in this session. Refer to links below for a sample vimrc which will serve as a good starting point as well as suggestions for customizing the editor&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;https://vim.fandom.com/wiki/Example_vimrc
+https://nvie.com/posts/how-i-boosted-my-vim/
+https://developer.ibm.com/tutorials/au-customize_vi/
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;em&gt;Note:&lt;/em&gt; We will revisit customization in later sessions, so for now, this section can be skimmed to get an idea of the vast options available for adjusting the behaviour of the editor itself&lt;/p&gt;
+&lt;h4&gt;Differences &amp;amp; Key Concepts&lt;/h4&gt;
+&lt;p&gt;vim feels a little different from most other editors such as say &lt;code&gt;Notepad++&lt;/code&gt; or &lt;code&gt;nano&lt;/code&gt; due to the different philosophy that vim employs to deal with editing. Below are the key points of the vim philosophy, as per my understanding:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;Modality&lt;/em&gt; - Separates editing/reading (&lt;em&gt;NORMAL&lt;/em&gt; mode) text from inputing/writing text (&lt;em&gt;INSERT&lt;/em&gt; mode). This allows effectively supercharges the two below principles.&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Orthogonality&lt;/em&gt; - Separates the notion of movement/selection from actions/changes. This allows the user to determine the region or items to change independent of the change itself&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Composability&lt;/em&gt; - Allows "building" up of changes from primitives that the user is already familiar with, these can further be built into macros for effective processing of repeitive tasks&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Of course, this is a personal view/opinion and various people would have a different view on these aspects.&lt;/p&gt;
+&lt;h4&gt;Basic Commands&lt;/h4&gt;
+&lt;p&gt;Keeping with the philosophy of Orthogonality &amp;amp; Composability, vim commands can be divided into two groups as below:&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Movements&lt;/th&gt;
+&lt;th&gt;Actions&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;0&lt;/code&gt; start of line&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;d&lt;/code&gt; delete&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;$&lt;/code&gt; end of line&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;c&lt;/code&gt; change&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;w&lt;/code&gt; next word&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;y&lt;/code&gt; yank (remember as cop&lt;em&gt;y&lt;/em&gt;)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;b&lt;/code&gt; previous word&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;.&lt;/code&gt; repeat prev action&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;These commands can then be combined to express the editing the user wants to perform. Eg: &lt;code&gt;d$&lt;/code&gt; will delete the current line (compare this with say Notepad++, where user needs to select the entire line with mouse and hit delete/backspace). A lot of the power of vim comes from these commands. Please refer to the links below that go into a lot more detail on vim commands (basic and intermediate):&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;https://vim.fandom.com/wiki/Tutorial
+https://www.linux.com/training-tutorials/vim-101-beginners-guide-vim/
+https://stackoverflow.com/questions/1276403/simple-vim-commands-you-wish-youd-known-earlier/1278813
+https://thoughtbot.com/upcase/vim
+https://code.tutsplus.com/articles/25-vim-tutorials-screencasts-and-resources--net-14631
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;We would cover language specific features and advanced concepts such as macros in the upcoming sessions, as well as how it applies specifically to the day to day tasks that we spend a lot of time on:
+- rationalizing logs from devices/field
+- narrowing down relevant parts of the logs with custom folds
+- macros to "boil down" log file and list out relevant/interesting lines from point of view of reproducing the bug and/or capturing state&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Migration Notes:&lt;/em&gt; Q&amp;amp;A Part not captured as I couldn't find those paper notes, the original post had a &lt;code&gt;TODO&lt;/code&gt; with typing out Q&amp;amp;A questions into blogger post. Sessions 2 &amp;amp; 3 were focussed on practical examples relevant to the team that I was then a part of and therefore have not been migrated.&lt;/p&gt;</content><category term="misc"></category><category term="vim"></category><category term="editor"></category></entry></feed>
