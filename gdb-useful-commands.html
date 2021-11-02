@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- ## for client-side less
+  <link rel="stylesheet/less" type="text/css" href="/theme/css/style.less">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/less.js/1.7.3/less.min.js" type="text/javascript"></script>
+  -->
+
+
+  <link rel="icon" type="image/vnd.microsoft.icon" href="/">
+  <link rel="stylesheet" type="text/css" href="/theme/css/normalize.css">
+  <link rel="stylesheet" type="text/css" href="/theme/css/style.min.css">
+  <link rel="stylesheet" type="text/css" href="/theme/css/pygments.css">
+  <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Roboto+Mono">
+  <link rel="stylesheet" type="text/css" href="/theme/css/fontawesome-all.min.css">
+  <link rel="stylesheet" type="text/css" href="/theme/css/hatena-bookmark-icon.css">
+
+  <meta charset="utf-8" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Bhargav Bhat">
+  <meta name="description" content="Posts and writings by Bhargav Bhat">
+  <meta name="og:site_name" content="Bhargav's Homepage">
+
+  <!-- Twitter Card -->
+
+
+  <meta name="og:url" content="/gdb-useful-commands.html" />
+  <meta name="og:title" content="gdb Useful Commands" />
+  <meta name="og:description" content="Listing of Useful gdb Commands" />
+  <meta name="keywords" content="programming, debugging, gdb">
+
+
+  <link href="/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Bhargav's Homepage Atom" />
+
+
+  <title>
+    Bhargav's Homepage
+&ndash; gdb Useful Commands  </title></head>
+
+<body>
+  <main>
+    <header>
+      <div class="site-name">
+        Bhargav's Homepage
+      </div>
+      <p>
+      <a href="/index.html"><i class="fab fas-archive"></i>HOME&nbsp;|&nbsp;</a>
+      <a href="/pages/about.html"><i class="fab fas-archive"></i>About&nbsp;|&nbsp;</a>
+        <a href="/archives.html"><i class="fab fas-archive"></i>Archive&nbsp;|&nbsp;</a>
+      <a href="/tags.html"><i class="fab fas-archive"></i>Tags&nbsp;|&nbsp;</a>
+      <a href="/categories.html"><i class="fab fas-archive"></i>Categories</a>
+      </p>
+    </header>
+
+<article>
+  <div class="article__title">
+    <h1><a href="/gdb-useful-commands.html">gdb Useful Commands</a></h1>
+  </div>
+  <div class="article__meta">
+    <p class="article__meta__post-date">Posted on: Sat 18 December 2010</p>
+ Tags:
+      <a href="/tag/programming.html">#programming</a>,      <a href="/tag/debugging.html">#debugging</a>,      <a href="/tag/gdb.html">#gdb</a>    </p>
+  </div>
+  <div class="article__text">
+    <p>Here's a list of very useful gdb commands:</p>
+<ul>
+<li>
+<p>Debugging</p>
+<ul>
+<li>From command prompt: <code>gdb prog.out</code></li>
+<li>From command prompt with args: <code>gdb --args prog.out &lt;arg1&gt; &lt;arg2&gt;</code></li>
+<li>Attach to process: <code>gdb</code> and then <code>attach &lt;pid&gt;</code></li>
+<li>From coredumps: <code>gdb prog.out -c &lt;dumpfile&gt;</code></li>
+</ul>
+</li>
+<li>
+<p>Breakpoints</p>
+<ul>
+<li>Break at function : <code>break &lt;func_name&gt;</code></li>
+<li>Break at line : <code>break &lt;line_num&gt;</code></li>
+<li>Break at source file &amp; line : <code>break &lt;src_file&gt;.c &lt;line_num&gt;</code></li>
+<li>Show Breakpoints : <code>info breakpoints</code></li>
+<li>Remove Particular breakpoint : <code>delete &lt;index&gt;</code></li>
+<li>Toggle breakpoints : <code>enable &lt;index&gt;</code> or <code>disable &lt;index&gt;</code></li>
+<li>Remove all breakpoints: <code>delete</code></li>
+<li>Remove breakpoints in func : <code>clear &lt;func_name&gt;</code></li>
+<li>Remove brekapoints at line : <code>clear &lt;line_num&gt;</code></li>
+</ul>
+</li>
+<li>
+<p>Running/Stepping</p>
+<ul>
+<li>Start execution : <code>run</code> or <code>r</code></li>
+<li>Continue execution :  <code>cont</code> or <code>c</code></li>
+<li>Line by line execution :  <code>step</code> or <code>s</code> (will step-into functions)</li>
+<li>Line by line execution : <code>next</code> or <code>n</code> (will step-over functions)</li>
+<li>Run next few lines : <code>next &lt;count&gt;</code></li>
+<li>Stop program : <code>kill</code> or <code>^C</code></li>
+</ul>
+</li>
+<li>
+<p>Callstack &amp; State</p>
+<ul>
+<li>View stack trace : <code>backtrace</code> or <code>bt</code></li>
+<li>View current state : <code>frame</code></li>
+<li>View local variables : <code>info locals</code></li>
+<li>View CLI args : <code>info args</code></li>
+<li>View Global and Static vars : <code>info variables</code></li>
+<li>View variable : <code>print &lt;var_name&gt;</code> (<code>print/x</code> to view as hex)</li>
+<li>View arrays : <code>print &lt;arr&gt;[&lt;idx&gt;]</code> or <code>print *&lt;arr&gt;@&lt;size&gt;</code> </li>
+</ul>
+</li>
+<li>
+<p>View Source</p>
+<ul>
+<li>View code around current point : <code>list</code> or <code>l</code></li>
+<li>View code around line : <code>list &lt;line&gt;</code></li>
+<li>View code in func : <code>list &lt;file&gt;:&lt;func&gt;</code></li>
+</ul>
+</li>
+</ul>
+<p><em>Notes/Links</em></p>
+<div class="highlight"><pre><span></span><code>https://beej.us/guide/bggdb/
+https://linux.die.net/man/1/gdb
+https://web.mit.edu/gnu/doc/html/gdb_toc.html
+https://courses.cs.washington.edu/courses/cse378/97au/help/gdb-intro.html
+</code></pre></div>
+  </div>
+
+</article>
+
+  <div><p>&nbsp;</p><p>&nbsp;</p></div>
+  </main>
+    <footer>
+      <!-- <div class="author__logo">
+          <img src="/theme/images/logo.png" alt="logo">
+      </div> -->
+      <!-- <section class="author">
+        <div class="author__name">
+          <a href="/pages/about.html">Bhargav Bhat</a>
+          <p></p>
+        </div>
+        <div class="author__link">
+          <ul>
+            <li>
+              <a href="/feeds/all.atom.xml" target="_blank" title="Feed">
+                <i class="fas fa-rss-square"></i>
+              </a>
+            </li>
+          </ul>
+	</div>
+      </section> -->
+      <div><p>&nbsp;</p><p>&nbsp;</p></div>
+      <div class="ending-message">
+        <p>&copy; Bhargav Bhat. Powered by <a href="http://getpelican.com" target="_blank">Pelican</a>, Theme is using <a href="https://github.com/laughk/pelican-hss" target="_blank">HSS</a>. </p>
+      </div>
+    </footer>
+</body>
+</html>

@@ -1,5 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Bhargav's Homepage - misc</title><link href="/" rel="alternate"></link><link href="/feeds/misc.atom.xml" rel="self"></link><id>/</id><updated>2012-08-15T09:17:00+05:30</updated><entry><title>Intro to vim - Session 1 Notes</title><link href="/intro-to-vim-session-1-notes.html" rel="alternate"></link><published>2012-08-15T09:17:00+05:30</published><updated>2012-08-15T09:17:00+05:30</updated><author><name>Bhargav Bhat</name></author><id>tag:None,2012-08-15:/intro-to-vim-session-1-notes.html</id><summary type="html">&lt;p&gt;Notes from 1st Session of introduction to vim&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;em&gt;This is a collection of notes and paraphrasing of Q&amp;amp;A from the 3 sessions of approx 45mins each. These sessions covered the basics of vim, presented over the last few weeks to team members and other interested colleagues. The focus of these sessions was more on improving day to day work efficiency with vim&lt;/em&gt;&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Bhargav's Homepage - misc</title><link href="/" rel="alternate"></link><link href="/feeds/misc.atom.xml" rel="self"></link><id>/</id><updated>2012-08-25T17:33:00+05:30</updated><entry><title>vim Macro Cheatsheet</title><link href="/vim-macro-cheatsheet.html" rel="alternate"></link><published>2012-08-25T17:33:00+05:30</published><updated>2012-08-25T17:33:00+05:30</updated><author><name>Bhargav Bhat</name></author><id>tag:None,2012-08-25:/vim-macro-cheatsheet.html</id><summary type="html">&lt;p&gt;Macro Cheatsheet for vim&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;em&gt;This is a suppliment to the earlier vim sesssions and was shared as an email to an internal team group&lt;/em&gt;&lt;/p&gt;
+&lt;h4&gt;Macros Recap&lt;/h4&gt;
+&lt;h4&gt;Macro Recording &amp;amp; Playback&lt;/h4&gt;
+&lt;ol&gt;
+&lt;li&gt;Ensure you're in &lt;em&gt;NORMAL&lt;/em&gt; mode and then hit the &lt;code&gt;q&lt;/code&gt; key to start macro recording&lt;/li&gt;
+&lt;li&gt;Next, Press a letter key &lt;code&gt;a-z&lt;/code&gt;, the macro you're recording will be saved in this register (or "slot")&lt;/li&gt;
+&lt;li&gt;Perform editing operation as desired, all of this is being recorded into the macro. Press &lt;code&gt;q&lt;/code&gt; again to stop recording&lt;/li&gt;
+&lt;li&gt;Replay the recorded macro by hitting the &lt;code&gt;@&lt;/code&gt; key followed by the letter from step #2.&lt;/li&gt;
+&lt;li&gt;Macros can be composed like normal commands &lt;code&gt;10@a&lt;/code&gt; will replay the macro in register &lt;code&gt;a&lt;/code&gt; 10 times.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;@@&lt;/code&gt; is handy to repeat the last macro (think &lt;code&gt;.&lt;/code&gt; for the &lt;em&gt;WHOLE&lt;/em&gt; macro. &lt;code&gt;.&lt;/code&gt; will only repeat the last command in the macro)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4&gt;Saving Macros across Sessions&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;vim automatically saves upto 50 lines of commands in each of the macro registers and restores them on editor restart&lt;/li&gt;
+&lt;li&gt;users can explicitly set register contents via &lt;code&gt;vimrc&lt;/code&gt; or the &lt;code&gt;^R^R&lt;/code&gt; command &lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Ref: &lt;code&gt;https://vim.fandom.com/wiki/Macros#Saving_a_macro&lt;/code&gt; for more details&lt;/p&gt;
+&lt;h4&gt;Dumping &amp;amp; Debugging Macros&lt;/h4&gt;
+&lt;p&gt;vim macros cannot be debugged step-by-step (atleast as far as I'm aware) like debugging code with &lt;code&gt;gdb&lt;/code&gt;. Here are a few handy pointers for checking macros and correcting any mistakes:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;code&gt;:reg x&lt;/code&gt; will print the contents of the register &lt;code&gt;x&lt;/code&gt;, assuming macro was recorded here, it will display the recorded commands&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;"xp&lt;/code&gt; will "paste" the contents of register &lt;code&gt;x&lt;/code&gt;, assuming macro was recorded here, you can have the contents pasted into the current buffer ("open file")&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;"xyy&lt;/code&gt; will "replace" the contents of register &lt;code&gt;x&lt;/code&gt; with the line selected from the current buffer. This can be used to correct commands recorded wrongly in the macro&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4&gt;Notes/Links&lt;/h4&gt;
+&lt;p&gt;Following are useful links for working with vim macros&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;https://vim.fandom.com/wiki/Macros
+https://www.thegeekstuff.com/2009/01/vi-and-vim-macro-tutorial-how-to-record-and-play/
+https://blog.sanctum.geek.nz/advanced-vim-macros/
+https://math.berkeley.edu/~gbergman/misc/hacks/vi.html
+https://unix.stackexchange.com/questions/17571/vim-markers-and-macros
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content><category term="misc"></category><category term="vim"></category><category term="editor"></category></entry><entry><title>Intro to vim - Session 1 Notes</title><link href="/intro-to-vim-session-1-notes.html" rel="alternate"></link><published>2012-08-15T09:17:00+05:30</published><updated>2012-08-15T09:17:00+05:30</updated><author><name>Bhargav Bhat</name></author><id>tag:None,2012-08-15:/intro-to-vim-session-1-notes.html</id><summary type="html">&lt;p&gt;Notes from 1st Session of introduction to vim&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;em&gt;This is a collection of notes and paraphrasing of Q&amp;amp;A from the 3 sessions of approx 45mins each. These sessions covered the basics of vim, presented over the last few weeks to team members and other interested colleagues. The focus of these sessions was more on improving day to day work efficiency with vim&lt;/em&gt;&lt;/p&gt;
 &lt;h4&gt;Introduction&lt;/h4&gt;
 &lt;p&gt;vim is an open-source, multi-platform text editor with various advanced features. The main selling point of vim is that once you've learnt the editor and its various modes, options and commands, you can use it to process all kinds of text files, not just code &amp;amp; configuration. Many people use vim to write/edit email and documents also. vim is extensible and can be configured to help with text editing tasks of all sorts of things. eg: documentation in markdown (with shortcut for previewing in browser), plugin for plantUML previews and similar.&lt;/p&gt;
 &lt;h4&gt;Installation&lt;/h4&gt;
@@ -60,4 +91,66 @@ https://code.tutsplus.com/articles/25-vim-tutorials-screencasts-and-resources--n
 - rationalizing logs from devices/field
 - narrowing down relevant parts of the logs with custom folds
 - macros to "boil down" log file and list out relevant/interesting lines from point of view of reproducing the bug and/or capturing state&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;Migration Notes:&lt;/em&gt; Q&amp;amp;A Part not captured as I couldn't find those paper notes, the original post had a &lt;code&gt;TODO&lt;/code&gt; with typing out Q&amp;amp;A questions into blogger post. Sessions 2 &amp;amp; 3 were focussed on practical examples relevant to the team that I was then a part of and therefore have not been migrated.&lt;/p&gt;</content><category term="misc"></category><category term="vim"></category><category term="editor"></category></entry></feed>
+&lt;p&gt;&lt;em&gt;Migration Notes:&lt;/em&gt; Q&amp;amp;A Part not captured as I couldn't find those paper notes, the original post had a &lt;code&gt;TODO&lt;/code&gt; with typing out Q&amp;amp;A questions into blogger post. Sessions 2 &amp;amp; 3 were focussed on practical examples relevant to the team that I was then a part of and therefore have not been migrated.&lt;/p&gt;</content><category term="misc"></category><category term="vim"></category><category term="editor"></category></entry><entry><title>gdb Useful Commands</title><link href="/gdb-useful-commands.html" rel="alternate"></link><published>2010-12-18T12:26:00+05:30</published><updated>2010-12-18T12:26:00+05:30</updated><author><name>Bhargav Bhat</name></author><id>tag:None,2010-12-18:/gdb-useful-commands.html</id><summary type="html">&lt;p&gt;Listing of Useful gdb Commands&lt;/p&gt;</summary><content type="html">&lt;p&gt;Here's a list of very useful gdb commands:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Debugging&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;From command prompt: &lt;code&gt;gdb prog.out&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;From command prompt with args: &lt;code&gt;gdb --args prog.out &amp;lt;arg1&amp;gt; &amp;lt;arg2&amp;gt;&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Attach to process: &lt;code&gt;gdb&lt;/code&gt; and then &lt;code&gt;attach &amp;lt;pid&amp;gt;&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;From coredumps: &lt;code&gt;gdb prog.out -c &amp;lt;dumpfile&amp;gt;&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Breakpoints&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Break at function : &lt;code&gt;break &amp;lt;func_name&amp;gt;&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Break at line : &lt;code&gt;break &amp;lt;line_num&amp;gt;&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Break at source file &amp;amp; line : &lt;code&gt;break &amp;lt;src_file&amp;gt;.c &amp;lt;line_num&amp;gt;&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Show Breakpoints : &lt;code&gt;info breakpoints&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Remove Particular breakpoint : &lt;code&gt;delete &amp;lt;index&amp;gt;&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Toggle breakpoints : &lt;code&gt;enable &amp;lt;index&amp;gt;&lt;/code&gt; or &lt;code&gt;disable &amp;lt;index&amp;gt;&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Remove all breakpoints: &lt;code&gt;delete&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Remove breakpoints in func : &lt;code&gt;clear &amp;lt;func_name&amp;gt;&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Remove brekapoints at line : &lt;code&gt;clear &amp;lt;line_num&amp;gt;&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Running/Stepping&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Start execution : &lt;code&gt;run&lt;/code&gt; or &lt;code&gt;r&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Continue execution :  &lt;code&gt;cont&lt;/code&gt; or &lt;code&gt;c&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Line by line execution :  &lt;code&gt;step&lt;/code&gt; or &lt;code&gt;s&lt;/code&gt; (will step-into functions)&lt;/li&gt;
+&lt;li&gt;Line by line execution : &lt;code&gt;next&lt;/code&gt; or &lt;code&gt;n&lt;/code&gt; (will step-over functions)&lt;/li&gt;
+&lt;li&gt;Run next few lines : &lt;code&gt;next &amp;lt;count&amp;gt;&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Stop program : &lt;code&gt;kill&lt;/code&gt; or &lt;code&gt;^C&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Callstack &amp;amp; State&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;View stack trace : &lt;code&gt;backtrace&lt;/code&gt; or &lt;code&gt;bt&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;View current state : &lt;code&gt;frame&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;View local variables : &lt;code&gt;info locals&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;View CLI args : &lt;code&gt;info args&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;View Global and Static vars : &lt;code&gt;info variables&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;View variable : &lt;code&gt;print &amp;lt;var_name&amp;gt;&lt;/code&gt; (&lt;code&gt;print/x&lt;/code&gt; to view as hex)&lt;/li&gt;
+&lt;li&gt;View arrays : &lt;code&gt;print &amp;lt;arr&amp;gt;[&amp;lt;idx&amp;gt;]&lt;/code&gt; or &lt;code&gt;print *&amp;lt;arr&amp;gt;@&amp;lt;size&amp;gt;&lt;/code&gt; &lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;View Source&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;View code around current point : &lt;code&gt;list&lt;/code&gt; or &lt;code&gt;l&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;View code around line : &lt;code&gt;list &amp;lt;line&amp;gt;&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;View code in func : &lt;code&gt;list &amp;lt;file&amp;gt;:&amp;lt;func&amp;gt;&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;em&gt;Notes/Links&lt;/em&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;https://beej.us/guide/bggdb/
+https://linux.die.net/man/1/gdb
+https://web.mit.edu/gnu/doc/html/gdb_toc.html
+https://courses.cs.washington.edu/courses/cse378/97au/help/gdb-intro.html
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content><category term="misc"></category><category term="programming"></category><category term="debugging"></category><category term="gdb"></category></entry></feed>

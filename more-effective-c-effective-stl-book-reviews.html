@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- ## for client-side less
+  <link rel="stylesheet/less" type="text/css" href="/theme/css/style.less">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/less.js/1.7.3/less.min.js" type="text/javascript"></script>
+  -->
+
+
+  <link rel="icon" type="image/vnd.microsoft.icon" href="/">
+  <link rel="stylesheet" type="text/css" href="/theme/css/normalize.css">
+  <link rel="stylesheet" type="text/css" href="/theme/css/style.min.css">
+  <link rel="stylesheet" type="text/css" href="/theme/css/pygments.css">
+  <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Roboto+Mono">
+  <link rel="stylesheet" type="text/css" href="/theme/css/fontawesome-all.min.css">
+  <link rel="stylesheet" type="text/css" href="/theme/css/hatena-bookmark-icon.css">
+
+  <meta charset="utf-8" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Bhargav Bhat">
+  <meta name="description" content="Posts and writings by Bhargav Bhat">
+  <meta name="og:site_name" content="Bhargav's Homepage">
+
+  <!-- Twitter Card -->
+
+
+  <meta name="og:url" content="/more-effective-c-effective-stl-book-reviews.html" />
+  <meta name="og:title" content="More Effective C++ & Effective STL : Book Reviews" />
+  <meta name="og:description" content="My review of the More Effective C++ & Effective STL Books" />
+  <meta name="keywords" content="cpp, book-review">
+
+
+  <link href="/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Bhargav's Homepage Atom" />
+
+
+  <title>
+    Bhargav's Homepage
+&ndash; More Effective C++ & Effective STL : Book Reviews  </title></head>
+
+<body>
+  <main>
+    <header>
+      <div class="site-name">
+        Bhargav's Homepage
+      </div>
+      <p>
+      <a href="/index.html"><i class="fab fas-archive"></i>HOME&nbsp;|&nbsp;</a>
+      <a href="/pages/about.html"><i class="fab fas-archive"></i>About&nbsp;|&nbsp;</a>
+        <a href="/archives.html"><i class="fab fas-archive"></i>Archive&nbsp;|&nbsp;</a>
+      <a href="/tags.html"><i class="fab fas-archive"></i>Tags&nbsp;|&nbsp;</a>
+      <a href="/categories.html"><i class="fab fas-archive"></i>Categories</a>
+      </p>
+    </header>
+
+<article>
+  <div class="article__title">
+    <h1><a href="/more-effective-c-effective-stl-book-reviews.html">More Effective C++ & Effective STL : Book Reviews</a></h1>
+  </div>
+  <div class="article__meta">
+    <p class="article__meta__post-date">Posted on: Sat 22 December 2012</p>
+ Tags:
+      <a href="/tag/cpp.html">#cpp</a>,      <a href="/tag/book-review.html">#book-review</a>    </p>
+  </div>
+  <div class="article__text">
+    <p>With more of my day-to-day work moving to C++, I was looking for a nice book to help me get upto speed with C++, best practices and some of the gotchas that C++ is ~famous~ infamous for. This book in particular had rave reviews and was recommended by multiple people, with colleagues, former colleagues and internet strangers all saying very good things about it. I purchased by copy from Sapna Book House about 2 months ago and have been reading it on and off since. I just finished the last topic ("Item 55") a few hours ago.</p>
+<h3>More Effective C++</h3>
+<p>The copy I purchased (online, this time around, those deals are too good to ignore) is a 2002 reprint (ISBN: 978-81-7758-980-1) as a paperback. The paper was mediocre as the pages were pretty flimsy. Unlike the first instalment of the book, this one had major issues with ghosting of highlighted parts.</p>
+<p>As with the first part of the series, this book too is divided into multiple sections and each section has a bunch of topics, and again there were no exercises as such. Of the 35 Items presented, the following were the most appealing/relevant to my circumstances</p>
+<ul>
+<li>Item 2  : Prefer C++ style casts </li>
+<li>Item 3  : Never treat arrays polymorphically</li>
+<li>Item 5  : Be wary of user conversion functions</li>
+<li>Item 9  : Use destructors to prevent resource leaks</li>
+<li>Item 13 : Catch exceptions by reference</li>
+<li>Item 15 : Understand costs of exception handling</li>
+<li>Item 18 : Amortize the cost of expected computation</li>
+<li>Item 20 : Facilitate return-value optimization (RVO)</li>
+<li>Item 28 : Smart Pointers</li>
+<li>Item 33 : Make non-leaf classes abstract</li>
+</ul>
+<h3>Effective STL</h3>
+<p>Was much of the same stuff as the previous two books in this series. This was once again a 2002 reprint (ISBN: 978-81-7758-908-5) paperback. Paper quality was better than More Effective C++ but I did encounter slight ghosting of highlights. While most of the content in Effective STL was virtually new to me, I found these items the most helpful, out of the total 50 presented:</p>
+<ul>
+<li>Item 3  : Make copying cheap &amp; correct for containers</li>
+<li>Item 6  : Be alert for C++'s most vexing parse </li>
+<li>Item 8  : Never create containers of <code>auto_ptr</code>s</li>
+<li>Item 9  : Choose carefully among erasing options</li>
+<li>Item 13 : Prefer <code>vector</code> and <code>string</code> to dynamically allocated arrays</li>
+<li>Item 14 : Use <code>reserve</code> to avoid unnecessary reallocations</li>
+<li>Item 18 : Avoid using <code>vector&lt;bool&gt;</code></li>
+<li>Item 19 : Understand differences between <code>equality</code> and <code>equivalence</code></li>
+<li>Item 24 : Choose carefully between <code>map::operator[]</code> and <code>map::insert</code> when efficiency is important</li>
+<li>Item 27 : Use <code>distance</code> and <code>advance</code> to convert <code>const_iterator</code>s to <code>iterator</code>s</li>
+<li>Item 32 : Follow <code>remove</code>-like algorithms by <code>erase</code> if you really want to remove something</li>
+<li>Item 36 : Understand the proper implementation of <code>copy_if</code></li>
+<li>Item 41 : Understand the reasons for <code>ptr_fun</code>, <code>mem_fun</code> and <code>mem_fun_ref</code></li>
+<li>Item 49 : Learn to decipher STL-related compiler diagonostics</li>
+</ul>
+<p>Overall, I'd consider that both books lived up to the hype surrounding them and the first installment in the series. Unlike the first part, these were focused a lot more on techniques and features beyond the basics. Between the two, More Effective C++ was a bit of heavy/intensive read esp. towards the end.  </p>
+  </div>
+
+</article>
+
+  <div><p>&nbsp;</p><p>&nbsp;</p></div>
+  </main>
+    <footer>
+      <!-- <div class="author__logo">
+          <img src="/theme/images/logo.png" alt="logo">
+      </div> -->
+      <!-- <section class="author">
+        <div class="author__name">
+          <a href="/pages/about.html">Bhargav Bhat</a>
+          <p></p>
+        </div>
+        <div class="author__link">
+          <ul>
+            <li>
+              <a href="/feeds/all.atom.xml" target="_blank" title="Feed">
+                <i class="fas fa-rss-square"></i>
+              </a>
+            </li>
+          </ul>
+	</div>
+      </section> -->
+      <div><p>&nbsp;</p><p>&nbsp;</p></div>
+      <div class="ending-message">
+        <p>&copy; Bhargav Bhat. Powered by <a href="http://getpelican.com" target="_blank">Pelican</a>, Theme is using <a href="https://github.com/laughk/pelican-hss" target="_blank">HSS</a>. </p>
+      </div>
+    </footer>
+</body>
+</html>

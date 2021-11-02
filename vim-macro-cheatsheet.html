@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- ## for client-side less
+  <link rel="stylesheet/less" type="text/css" href="/theme/css/style.less">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/less.js/1.7.3/less.min.js" type="text/javascript"></script>
+  -->
+
+
+  <link rel="icon" type="image/vnd.microsoft.icon" href="/">
+  <link rel="stylesheet" type="text/css" href="/theme/css/normalize.css">
+  <link rel="stylesheet" type="text/css" href="/theme/css/style.min.css">
+  <link rel="stylesheet" type="text/css" href="/theme/css/pygments.css">
+  <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Roboto+Mono">
+  <link rel="stylesheet" type="text/css" href="/theme/css/fontawesome-all.min.css">
+  <link rel="stylesheet" type="text/css" href="/theme/css/hatena-bookmark-icon.css">
+
+  <meta charset="utf-8" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Bhargav Bhat">
+  <meta name="description" content="Posts and writings by Bhargav Bhat">
+  <meta name="og:site_name" content="Bhargav's Homepage">
+
+  <!-- Twitter Card -->
+
+
+  <meta name="og:url" content="/vim-macro-cheatsheet.html" />
+  <meta name="og:title" content="vim Macro Cheatsheet" />
+  <meta name="og:description" content="Macro Cheatsheet for vim" />
+  <meta name="keywords" content="vim, editor">
+
+
+  <link href="/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Bhargav's Homepage Atom" />
+
+
+  <title>
+    Bhargav's Homepage
+&ndash; vim Macro Cheatsheet  </title></head>
+
+<body>
+  <main>
+    <header>
+      <div class="site-name">
+        Bhargav's Homepage
+      </div>
+      <p>
+      <a href="/index.html"><i class="fab fas-archive"></i>HOME&nbsp;|&nbsp;</a>
+      <a href="/pages/about.html"><i class="fab fas-archive"></i>About&nbsp;|&nbsp;</a>
+        <a href="/archives.html"><i class="fab fas-archive"></i>Archive&nbsp;|&nbsp;</a>
+      <a href="/tags.html"><i class="fab fas-archive"></i>Tags&nbsp;|&nbsp;</a>
+      <a href="/categories.html"><i class="fab fas-archive"></i>Categories</a>
+      </p>
+    </header>
+
+<article>
+  <div class="article__title">
+    <h1><a href="/vim-macro-cheatsheet.html">vim Macro Cheatsheet</a></h1>
+  </div>
+  <div class="article__meta">
+    <p class="article__meta__post-date">Posted on: Sat 25 August 2012</p>
+ Tags:
+      <a href="/tag/vim.html">#vim</a>,      <a href="/tag/editor.html">#editor</a>    </p>
+  </div>
+  <div class="article__text">
+    <p><em>This is a suppliment to the earlier vim sesssions and was shared as an email to an internal team group</em></p>
+<h4>Macros Recap</h4>
+<h4>Macro Recording &amp; Playback</h4>
+<ol>
+<li>Ensure you're in <em>NORMAL</em> mode and then hit the <code>q</code> key to start macro recording</li>
+<li>Next, Press a letter key <code>a-z</code>, the macro you're recording will be saved in this register (or "slot")</li>
+<li>Perform editing operation as desired, all of this is being recorded into the macro. Press <code>q</code> again to stop recording</li>
+<li>Replay the recorded macro by hitting the <code>@</code> key followed by the letter from step #2.</li>
+<li>Macros can be composed like normal commands <code>10@a</code> will replay the macro in register <code>a</code> 10 times.</li>
+<li><code>@@</code> is handy to repeat the last macro (think <code>.</code> for the <em>WHOLE</em> macro. <code>.</code> will only repeat the last command in the macro)</li>
+</ol>
+<h4>Saving Macros across Sessions</h4>
+<ul>
+<li>vim automatically saves upto 50 lines of commands in each of the macro registers and restores them on editor restart</li>
+<li>users can explicitly set register contents via <code>vimrc</code> or the <code>^R^R</code> command </li>
+</ul>
+<p>Ref: <code>https://vim.fandom.com/wiki/Macros#Saving_a_macro</code> for more details</p>
+<h4>Dumping &amp; Debugging Macros</h4>
+<p>vim macros cannot be debugged step-by-step (atleast as far as I'm aware) like debugging code with <code>gdb</code>. Here are a few handy pointers for checking macros and correcting any mistakes:</p>
+<ol>
+<li><code>:reg x</code> will print the contents of the register <code>x</code>, assuming macro was recorded here, it will display the recorded commands</li>
+<li><code>"xp</code> will "paste" the contents of register <code>x</code>, assuming macro was recorded here, you can have the contents pasted into the current buffer ("open file")</li>
+<li><code>"xyy</code> will "replace" the contents of register <code>x</code> with the line selected from the current buffer. This can be used to correct commands recorded wrongly in the macro</li>
+</ol>
+<h4>Notes/Links</h4>
+<p>Following are useful links for working with vim macros</p>
+<div class="highlight"><pre><span></span><code>https://vim.fandom.com/wiki/Macros
+https://www.thegeekstuff.com/2009/01/vi-and-vim-macro-tutorial-how-to-record-and-play/
+https://blog.sanctum.geek.nz/advanced-vim-macros/
+https://math.berkeley.edu/~gbergman/misc/hacks/vi.html
+https://unix.stackexchange.com/questions/17571/vim-markers-and-macros
+</code></pre></div>
+  </div>
+
+</article>
+
+  <div><p>&nbsp;</p><p>&nbsp;</p></div>
+  </main>
+    <footer>
+      <!-- <div class="author__logo">
+          <img src="/theme/images/logo.png" alt="logo">
+      </div> -->
+      <!-- <section class="author">
+        <div class="author__name">
+          <a href="/pages/about.html">Bhargav Bhat</a>
+          <p></p>
+        </div>
+        <div class="author__link">
+          <ul>
+            <li>
+              <a href="/feeds/all.atom.xml" target="_blank" title="Feed">
+                <i class="fas fa-rss-square"></i>
+              </a>
+            </li>
+          </ul>
+	</div>
+      </section> -->
+      <div><p>&nbsp;</p><p>&nbsp;</p></div>
+      <div class="ending-message">
+        <p>&copy; Bhargav Bhat. Powered by <a href="http://getpelican.com" target="_blank">Pelican</a>, Theme is using <a href="https://github.com/laughk/pelican-hss" target="_blank">HSS</a>. </p>
+      </div>
+    </footer>
+</body>
+</html>
