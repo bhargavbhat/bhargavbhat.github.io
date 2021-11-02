@@ -1,6 +1,6 @@
 AUTHOR = 'Bhargav Bhat'
 SITENAME = "Bhargav's Homepage"
-SITEURL = 'https://bhargavbhat.me/'
+SITEURL = 'https://bhargavbhat.me'
 
 PATH = 'content'
 STATIC_PATHS = ['images']
@@ -12,11 +12,6 @@ DEFAULT_LANG = 'en'
 # Feed generation is usually not desired when developing
 FEED_ALL_RSS = None
 FEED_ALL_ATOM = None
-
-# Social widget
-SOCIAL = (('LinkedIn', 'https://www.linkedin.com/in/kbhargavbhat'),
-         ('Github', 'https://www.github.com/bhargavbhat'),)
-
 
 DEFAULT_PAGINATION = 8
 
