@@ -3,7 +3,7 @@ SITENAME = "Bhargav's Homepage"
 SITEURL = 'https://bhargavbhat.me'
 
 PATH = 'content'
-STATIC_PATHS = ['images']
+STATIC_PATHS = ['images', 'content/extra']
 
 TIMEZONE = 'Asia/Kolkata'
 
