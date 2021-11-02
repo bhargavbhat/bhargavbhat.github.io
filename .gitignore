@@ -5,7 +5,6 @@
 *.swp
 *.out
 *.py[cod]
-output
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
