@@ -43,13 +43,14 @@
   <main>
     <header>
       <div class="site-name">
-        <a href="">Bhargav's Homepage</a>
+        Bhargav's Homepage
       </div>
       <p>
-        <a href="/pages/about.html"><i class="fab fas-archive"></i>About&nbsp;|&nbsp;</a>
+      <a href=""><i class="fab fas-archive"></i>HOME&nbsp;|&nbsp;</a>
+      <a href="/pages/about.html"><i class="fab fas-archive"></i>About&nbsp;|&nbsp;</a>
         <a href="/archives.html"><i class="fab fas-archive"></i>Archive&nbsp;|&nbsp;</a>
-        <a href="/tags.html"><i class="fab fas-archive"></i>Tags&nbsp;|&nbsp;</a>
-        <a href="/categories.html"><i class="fab fas-archive"></i>Categories</a>
+      <a href="/tags.html"><i class="fab fas-archive"></i>Tags&nbsp;|&nbsp;</a>
+      <a href="/categories.html"><i class="fab fas-archive"></i>Categories</a>
       </p>
     </header>
 
@@ -64,14 +65,23 @@
   </div>
   <div class="article__text">
     <p>I ran into a seemingly straight forward problem earlier this week: treat a particular <code>#define</code> value as either string or int, depending on the context where it is used. A naive solution to is repeating the <code>#define</code> twice, once as a string and then as a integer:</p>
-<div class="highlight"><pre><span></span><code><span class="cp">#define SOME_VALUE_INT 42</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="cp">#define SOME_VALUE_INT 42</span>
 <span class="cp">#define SOME_VALUE_STR &quot;42&quot;</span>
 </code></pre></div>
-
+</td></tr></table>
 <p>... and using the right value depending on the context. Not only is this naive method a violation of DRY, but it is also very crude and inelegant. Having multiple such <code>#define</code>ed constants are a maintainance disaster waiting to happen. My search for a better way to deal with this lead me to a very relevant <a href="https://stackoverflow.com/questions/2653214/stringification-of-a-macro-value">question</a> on SO and down I went the rabbit hole that is the the C Pre-processor. This is a summary of my learning and notes for my future self.</p>
 <h3>The Stringizing Operator : <code>#</code></h3>
 <p>This operator solves the problem above rather elegantly, as described the accepted answer to in the SO question above:</p>
-<div class="highlight"><pre><span></span><code><span class="cp">#define xstr(a) str(a)</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span>
+<span class="normal">9</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="cp">#define xstr(a) str(a)</span>
 <span class="cp">#define str(a) #a</span>
 
 <span class="cp">#define RECORDS_PER_PAGE 10</span>
@@ -81,17 +91,21 @@
 <span class="cp">        &quot; OFFSET %d * &quot; xstr(RECORDS_PER_PAGE) \</span>
 <span class="cp">        &quot; LIMIT &quot; xstr(RECORDS_PER_PAGE) &quot;;&quot;</span>
 </code></pre></div>
-
-<p>The <code>#</code> operator:
-- allows the preprocessor to replace anything prefixed with a <code>#</code> with the literal text of the actual argument. The argument is not macro-expanded.
-- leading &amp; trailing whitespace is ignored. Whitespaces in the middle of the text converted to a single space
-- to stringize the result of expansion of a macro argument, you have to use two levels of macros</p>
-<p><em>Source</em>: GCC <a href="https://gcc.gnu.org/onlinedocs/cpp/Stringizing.html#Stringizing">docs</a></p>
+</td></tr></table>
+<p>The <code>#</code> operator:</p>
+<ul>
+<li>allows the preprocessor to replace anything prefixed with a <code>#</code> with the literal text of the actual argument. The argument is not macro-expanded.</li>
+<li>leading &amp; trailing whitespace is ignored. Whitespaces in the middle of the text converted to a single space</li>
+<li>to stringize the result of expansion of a macro argument, you have to use two levels of macros</li>
+</ul>
+<p><em>Source</em> : GCC <a href="https://gcc.gnu.org/onlinedocs/cpp/Stringizing.html#Stringizing">docs</a></p>
 <h3>The Concatenation Operator : <code>##</code></h3>
-<p>This operator solves a somewhate related problem of merging or combining two macro values into a single string. The <code>##</code> operator:
-- performs token pasting : two tokens on either side of ‘##’ operator are combined into a single token. The the actual arguments are not macro-expanded.
-- cannot create a comment by concatenating ‘/’ and ‘*’.
-- comments in arguments that will be concatenated</p>
+<p>This operator solves a somewhate related problem of merging or combining two macro values into a single string. The <code>##</code> operator:</p>
+<ul>
+<li>performs token pasting : two tokens on either side of ‘##’ operator are combined into a single token. The the actual arguments are not macro-expanded.</li>
+<li>cannot create a comment by concatenating ‘/’ and ‘*’.</li>
+<li>comments in arguments that will be concatenated</li>
+</ul>
 <p><em>Source</em> : GCC <a href="https://gcc.gnu.org/onlinedocs/cpp/Concatenation.html#Concatenation">docs</a></p>
 <p>While these operators present interesting possibilities, using them for all but the most basic and straight forward needs would be difficult. Although handy in a few situations, they are qutie limited and come with a bunch of caveats. However, there still are a few corner cases where they do make lives of programmers a lot simpler.</p>
   </div>
