@@ -1,6 +1,6 @@
 AUTHOR = 'Bhargav Bhat'
 SITENAME = "Bhargav's Homepage"
-SITEURL = 'https://bhargavbhat.me'
+SITEURL = 'https://bhargavbhat.me/'
 
 PATH = 'content'
 STATIC_PATHS = ['images']
