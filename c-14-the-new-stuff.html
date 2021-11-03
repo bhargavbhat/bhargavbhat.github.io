@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- ## for client-side less
+  <link rel="stylesheet/less" type="text/css" href="/theme/css/style.less">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/less.js/1.7.3/less.min.js" type="text/javascript"></script>
+  -->
+
+
+  <link rel="icon" type="image/vnd.microsoft.icon" href="/">
+  <link rel="stylesheet" type="text/css" href="/theme/css/normalize.css">
+  <link rel="stylesheet" type="text/css" href="/theme/css/style.min.css">
+  <link rel="stylesheet" type="text/css" href="/theme/css/pygments.css">
+  <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Roboto+Mono">
+  <link rel="stylesheet" type="text/css" href="/theme/css/fontawesome-all.min.css">
+  <link rel="stylesheet" type="text/css" href="/theme/css/hatena-bookmark-icon.css">
+
+  <meta charset="utf-8" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Bhargav Bhat">
+  <meta name="description" content="Posts and writings by Bhargav Bhat">
+  <meta name="og:site_name" content="Bhargav's Homepage">
+
+  <!-- Twitter Card -->
+
+
+  <meta name="og:url" content="/c-14-the-new-stuff.html" />
+  <meta name="og:title" content="C++ 14 : The new stuff" />
+  <meta name="og:description" content="TIL about the C++14 release and the new features in this release" />
+  <meta name="keywords" content="cpp, cpp11, til">
+
+
+  <title>
+    Bhargav's Homepage
+&ndash; C++ 14 : The new stuff  </title></head>
+
+<body>
+  <main>
+    <header>
+      <div class="site-name">
+        Bhargav's Homepage
+      </div>
+      <p>
+      <a href="/index.html"><i class="fab fas-archive"></i>HOME&nbsp;|&nbsp;</a>
+      <a href="/pages/about.html"><i class="fab fas-archive"></i>About&nbsp;|&nbsp;</a>
+        <a href="/archives.html"><i class="fab fas-archive"></i>Archive&nbsp;|&nbsp;</a>
+      <a href="/tags.html"><i class="fab fas-archive"></i>Tags&nbsp;|&nbsp;</a>
+      <a href="/categories.html"><i class="fab fas-archive"></i>Categories</a>
+      </p>
+    </header>
+
+<article>
+  <div class="article__title">
+    <h1><a href="/c-14-the-new-stuff.html">C++ 14 : The new stuff</a></h1>
+  </div>
+  <div class="article__meta">
+    <p class="article__meta__post-date">Posted on: Fri 02 October 2015</p>
+ Tags:
+      <a href="/tag/cpp.html">#cpp</a>,      <a href="/tag/cpp11.html">#cpp11</a>,      <a href="/tag/til.html">#til</a>    </p>
+  </div>
+  <div class="article__text">
+    <p>Sometime last year the C++14 standard was finalized. Although, this is specified to be a minor release to the standard, it does bring some very helpful features. As I understand, new versions of most compilers support these features in some form already and it is just a matter of using the right switch to have them behave as per the C++14 standard (rather than whatever implementation specific behaviour they implemented as an extension).</p>
+<h3>"New" New Stuff</h3>
+<p>There aren't too many "new" new features, the ones I found most helpful are:</p>
+<ul>
+<li><strong>Binary Literals</strong> : <code>0b</code> or <code>0B</code> can now be used to specify binary literals (similar to how hex numbers are specified). This is pretty helpful for specifying masks and such</li>
+<li><strong>Digit Separator</strong> : <code>'</code> (single quote) can now be used between numbers to separate digits, eg: 100k can be written <code>100'000</code></li>
+<li><strong>STL Custom Literals</strong> : STL has been extended to support string literals such as <code>s</code> for seconds etc for various types</li>
+</ul>
+<h3>Old New Stuff</h3>
+<p>With a nod to the <a href="https://devblogs.microsoft.com/oldnewthing/">inspiration</a> behind this title, here's the list of C++11 items that 14 improves upon:</p>
+<ul>
+<li><strong>Return-type Deduction</strong> : <code>auto</code> is now permissible as a return type. Eg: <code>auto someFunc(int x, float y);</code></li>
+<li><strong>Generic Lambdas</strong> : <code>auto</code> is now permissible in lambda parameter type. Eg: <code>[](auto x, auto y) {return x + y;};</code></li>
+<li><strong>Generic Lambda Caputure</strong> : In addition to capturing scoped variables by value, now, arbitrary values can also be passed into lambdas. Eg: <code>[a = x, b = x+1] {return 2*a+b;}</code></li>
+</ul>
+<p><a href="https://www.infoq.com/news/2014/08/cpp14-here-features/">This</a> and <a href="https://isocpp.org/wiki/faq/cpp14-language">this</a> page have been very helpful to bring me upto speed with C++14.</p>
+<p>Overall, C++14 seems to be an "hotfix" or "service pack" for C++11 rather than something major. It should be realtively simple to migrate existing C++11 code to 14 and start utilizing some of the new stuff from 14. While binary literals and generic lambdas look great on paper, I really am keen to see how much of an impact they really have on day-to-day tasks.</p>
+  </div>
+
+</article>
+
+  <div><p>&nbsp;</p><p>&nbsp;</p></div>
+  </main>
+    <footer>
+      <!-- <div class="author__logo">
+          <img src="/theme/images/logo.png" alt="logo">
+      </div> -->
+      <!-- <section class="author">
+        <div class="author__name">
+          <a href="/pages/about.html">Bhargav Bhat</a>
+          <p></p>
+        </div>
+        <div class="author__link">
+          <ul>
+            <li>
+              <a href="/feeds/all.atom.xml" target="_blank" title="Feed">
+                <i class="fas fa-rss-square"></i>
+              </a>
+            </li>
+          </ul>
+	</div>
+      </section> -->
+      <div><p>&nbsp;</p><p>&nbsp;</p></div>
+      <div class="ending-message">
+        <p>&copy; Bhargav Bhat. Powered by <a href="http://getpelican.com" target="_blank">Pelican</a>, Theme is using <a href="https://github.com/laughk/pelican-hss" target="_blank">HSS</a>. </p>
+      </div>
+    </footer>
+</body>
+</html>
