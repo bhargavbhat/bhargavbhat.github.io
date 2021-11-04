@@ -1,157 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Bhargav's Homepage - misc</title><link href="/" rel="alternate"></link><link href="/feeds/misc.atom.xml" rel="self"></link><id>/</id><updated>2015-09-25T10:11:00+05:30</updated><entry><title>NeoVim</title><link href="/neovim.html" rel="alternate"></link><published>2015-09-25T10:11:00+05:30</published><updated>2015-09-25T10:11:00+05:30</updated><author><name>Bhargav Bhat</name></author><id>tag:None,2015-09-25:/neovim.html</id><summary type="html">&lt;p&gt;NeoVim - a vim challenger?&lt;/p&gt;</summary><content type="html">&lt;p&gt;Today, I came across &lt;a href="https://neovim.io/"&gt;NeoVim&lt;/a&gt; which is a project that forks from the vim sources, cleans up a lot of the cruft from supporting esoteric platforms and operating systems and adds a bunch of really handy features like &lt;code&gt;:terminal&lt;/code&gt;. It also boasts of a new Plugin API (backwards compatible with the old plugins and VimL). All in all, neovim bills itself as the "good parts" of vim. &lt;a href="https://geoff.greer.fm/2015/01/15/why-neovim-is-better-than-vim/"&gt;This&lt;/a&gt; blog post goes into the details of what NeoVim brings to the table.&lt;/p&gt;
-&lt;p&gt;As a long term user of vim, I'm glad that this choice exists and that the cruft of systems long dead is not holding back the development of vim, albeit as a fork. Personally, I'm not decided on whether to switch or not. Maybe I'll try it for a few weeks at home and see how things pan out :)&lt;/p&gt;</content><category term="misc"></category><category term="vim"></category><category term="editor"></category></entry><entry><title>vim Macro Cheatsheet</title><link href="/vim-macro-cheatsheet.html" rel="alternate"></link><published>2012-08-25T17:33:00+05:30</published><updated>2012-08-25T17:33:00+05:30</updated><author><name>Bhargav Bhat</name></author><id>tag:None,2012-08-25:/vim-macro-cheatsheet.html</id><summary type="html">&lt;p&gt;Macro Cheatsheet for vim&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;em&gt;This is a suppliment to the earlier vim sesssions and was shared as an email to an internal team group&lt;/em&gt;&lt;/p&gt;
-&lt;h4&gt;Macros Recap&lt;/h4&gt;
-&lt;h4&gt;Macro Recording &amp;amp; Playback&lt;/h4&gt;
-&lt;ol&gt;
-&lt;li&gt;Ensure you're in &lt;em&gt;NORMAL&lt;/em&gt; mode and then hit the &lt;code&gt;q&lt;/code&gt; key to start macro recording&lt;/li&gt;
-&lt;li&gt;Next, Press a letter key &lt;code&gt;a-z&lt;/code&gt;, the macro you're recording will be saved in this register (or "slot")&lt;/li&gt;
-&lt;li&gt;Perform editing operation as desired, all of this is being recorded into the macro. Press &lt;code&gt;q&lt;/code&gt; again to stop recording&lt;/li&gt;
-&lt;li&gt;Replay the recorded macro by hitting the &lt;code&gt;@&lt;/code&gt; key followed by the letter from step #2.&lt;/li&gt;
-&lt;li&gt;Macros can be composed like normal commands &lt;code&gt;10@a&lt;/code&gt; will replay the macro in register &lt;code&gt;a&lt;/code&gt; 10 times.&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;@@&lt;/code&gt; is handy to repeat the last macro (think &lt;code&gt;.&lt;/code&gt; for the &lt;em&gt;WHOLE&lt;/em&gt; macro. &lt;code&gt;.&lt;/code&gt; will only repeat the last command in the macro)&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h4&gt;Saving Macros across Sessions&lt;/h4&gt;
-&lt;ul&gt;
-&lt;li&gt;vim automatically saves upto 50 lines of commands in each of the macro registers and restores them on editor restart&lt;/li&gt;
-&lt;li&gt;users can explicitly set register contents via &lt;code&gt;vimrc&lt;/code&gt; or the &lt;code&gt;^R^R&lt;/code&gt; command &lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Ref: &lt;code&gt;https://vim.fandom.com/wiki/Macros#Saving_a_macro&lt;/code&gt; for more details&lt;/p&gt;
-&lt;h4&gt;Dumping &amp;amp; Debugging Macros&lt;/h4&gt;
-&lt;p&gt;vim macros cannot be debugged step-by-step (atleast as far as I'm aware) like debugging code with &lt;code&gt;gdb&lt;/code&gt;. Here are a few handy pointers for checking macros and correcting any mistakes:&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;&lt;code&gt;:reg x&lt;/code&gt; will print the contents of the register &lt;code&gt;x&lt;/code&gt;, assuming macro was recorded here, it will display the recorded commands&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;"xp&lt;/code&gt; will "paste" the contents of register &lt;code&gt;x&lt;/code&gt;, assuming macro was recorded here, you can have the contents pasted into the current buffer ("open file")&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;"xyy&lt;/code&gt; will "replace" the contents of register &lt;code&gt;x&lt;/code&gt; with the line selected from the current buffer. This can be used to correct commands recorded wrongly in the macro&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h4&gt;Notes/Links&lt;/h4&gt;
-&lt;p&gt;Following are useful links for working with vim macros&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;https://vim.fandom.com/wiki/Macros
-https://www.thegeekstuff.com/2009/01/vi-and-vim-macro-tutorial-how-to-record-and-play/
-https://blog.sanctum.geek.nz/advanced-vim-macros/
-https://math.berkeley.edu/~gbergman/misc/hacks/vi.html
-https://unix.stackexchange.com/questions/17571/vim-markers-and-macros
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content><category term="misc"></category><category term="vim"></category><category term="editor"></category></entry><entry><title>Intro to vim - Session 1 Notes</title><link href="/intro-to-vim-session-1-notes.html" rel="alternate"></link><published>2012-08-15T09:17:00+05:30</published><updated>2012-08-15T09:17:00+05:30</updated><author><name>Bhargav Bhat</name></author><id>tag:None,2012-08-15:/intro-to-vim-session-1-notes.html</id><summary type="html">&lt;p&gt;Notes from 1st Session of introduction to vim&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;em&gt;This is a collection of notes and paraphrasing of Q&amp;amp;A from the 3 sessions of approx 45mins each. These sessions covered the basics of vim, presented over the last few weeks to team members and other interested colleagues. The focus of these sessions was more on improving day to day work efficiency with vim&lt;/em&gt;&lt;/p&gt;
-&lt;h4&gt;Introduction&lt;/h4&gt;
-&lt;p&gt;vim is an open-source, multi-platform text editor with various advanced features. The main selling point of vim is that once you've learnt the editor and its various modes, options and commands, you can use it to process all kinds of text files, not just code &amp;amp; configuration. Many people use vim to write/edit email and documents also. vim is extensible and can be configured to help with text editing tasks of all sorts of things. eg: documentation in markdown (with shortcut for previewing in browser), plugin for plantUML previews and similar.&lt;/p&gt;
-&lt;h4&gt;Installation&lt;/h4&gt;
-&lt;p&gt;vim can be installed via PeaCy on Windows or with &lt;code&gt;apt-get&lt;/code&gt; on Ubuntu. The low-foot print simulator images and build servers have &lt;code&gt;vi&lt;/code&gt; which is a lesser featured cousin of vim already for quick editing tasks such as tweaking config files and such.&lt;/p&gt;
-&lt;h4&gt;Customization&lt;/h4&gt;
-&lt;p&gt;vim can be customized via the &lt;code&gt;vimrc&lt;/code&gt; file, which determines the behaviour of the editor, the syntax highlighting and plugins available as well as general features such as keyboard-shortcuts (which vim names as keybindings). vim is extermely customizable and it wouldn't be possible to cover all the options and settings available in this session. Refer to links below for a sample vimrc which will serve as a good starting point as well as suggestions for customizing the editor&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;https://vim.fandom.com/wiki/Example_vimrc
-https://nvie.com/posts/how-i-boosted-my-vim/
-https://developer.ibm.com/tutorials/au-customize_vi/
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;em&gt;Note:&lt;/em&gt; We will revisit customization in later sessions, so for now, this section can be skimmed to get an idea of the vast options available for adjusting the behaviour of the editor itself&lt;/p&gt;
-&lt;h4&gt;Differences &amp;amp; Key Concepts&lt;/h4&gt;
-&lt;p&gt;vim feels a little different from most other editors such as say &lt;code&gt;Notepad++&lt;/code&gt; or &lt;code&gt;nano&lt;/code&gt; due to the different philosophy that vim employs to deal with editing. Below are the key points of the vim philosophy, as per my understanding:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;em&gt;Modality&lt;/em&gt; - Separates editing/reading (&lt;em&gt;NORMAL&lt;/em&gt; mode) text from inputing/writing text (&lt;em&gt;INSERT&lt;/em&gt; mode). This allows effectively supercharges the two below principles.&lt;/li&gt;
-&lt;li&gt;&lt;em&gt;Orthogonality&lt;/em&gt; - Separates the notion of movement/selection from actions/changes. This allows the user to determine the region or items to change independent of the change itself&lt;/li&gt;
-&lt;li&gt;&lt;em&gt;Composability&lt;/em&gt; - Allows "building" up of changes from primitives that the user is already familiar with, these can further be built into macros for effective processing of repeitive tasks&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Of course, this is a personal view/opinion and various people would have a different view on these aspects.&lt;/p&gt;
-&lt;h4&gt;Basic Commands&lt;/h4&gt;
-&lt;p&gt;Keeping with the philosophy of Orthogonality &amp;amp; Composability, vim commands can be divided into two groups as below:&lt;/p&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;Movements&lt;/th&gt;
-&lt;th&gt;Actions&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;0&lt;/code&gt; start of line&lt;/td&gt;
-&lt;td&gt;&lt;code&gt;d&lt;/code&gt; delete&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;$&lt;/code&gt; end of line&lt;/td&gt;
-&lt;td&gt;&lt;code&gt;c&lt;/code&gt; change&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;w&lt;/code&gt; next word&lt;/td&gt;
-&lt;td&gt;&lt;code&gt;y&lt;/code&gt; yank (remember as cop&lt;em&gt;y&lt;/em&gt;)&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;b&lt;/code&gt; previous word&lt;/td&gt;
-&lt;td&gt;&lt;code&gt;.&lt;/code&gt; repeat prev action&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;p&gt;These commands can then be combined to express the editing the user wants to perform. Eg: &lt;code&gt;d$&lt;/code&gt; will delete the current line (compare this with say Notepad++, where user needs to select the entire line with mouse and hit delete/backspace). A lot of the power of vim comes from these commands. Please refer to the links below that go into a lot more detail on vim commands (basic and intermediate):&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;https://vim.fandom.com/wiki/Tutorial
-https://www.linux.com/training-tutorials/vim-101-beginners-guide-vim/
-https://stackoverflow.com/questions/1276403/simple-vim-commands-you-wish-youd-known-earlier/1278813
-https://thoughtbot.com/upcase/vim
-https://code.tutsplus.com/articles/25-vim-tutorials-screencasts-and-resources--net-14631
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;We would cover language specific features and advanced concepts such as macros in the upcoming sessions, as well as how it applies specifically to the day to day tasks that we spend a lot of time on:
-- rationalizing logs from devices/field
-- narrowing down relevant parts of the logs with custom folds
-- macros to "boil down" log file and list out relevant/interesting lines from point of view of reproducing the bug and/or capturing state&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;Migration Notes:&lt;/em&gt; Q&amp;amp;A Part not captured as I couldn't find those paper notes, the original post had a &lt;code&gt;TODO&lt;/code&gt; with typing out Q&amp;amp;A questions into blogger post. Sessions 2 &amp;amp; 3 were focussed on practical examples relevant to the team that I was then a part of and therefore have not been migrated.&lt;/p&gt;</content><category term="misc"></category><category term="vim"></category><category term="editor"></category></entry><entry><title>gdb Useful Commands</title><link href="/gdb-useful-commands.html" rel="alternate"></link><published>2010-12-18T12:26:00+05:30</published><updated>2010-12-18T12:26:00+05:30</updated><author><name>Bhargav Bhat</name></author><id>tag:None,2010-12-18:/gdb-useful-commands.html</id><summary type="html">&lt;p&gt;Listing of Useful gdb Commands&lt;/p&gt;</summary><content type="html">&lt;p&gt;Here's a list of very useful gdb commands:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;Debugging&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;From command prompt: &lt;code&gt;gdb prog.out&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;From command prompt with args: &lt;code&gt;gdb --args prog.out &amp;lt;arg1&amp;gt; &amp;lt;arg2&amp;gt;&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;Attach to process: &lt;code&gt;gdb&lt;/code&gt; and then &lt;code&gt;attach &amp;lt;pid&amp;gt;&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;From coredumps: &lt;code&gt;gdb prog.out -c &amp;lt;dumpfile&amp;gt;&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Breakpoints&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Break at function : &lt;code&gt;break &amp;lt;func_name&amp;gt;&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;Break at line : &lt;code&gt;break &amp;lt;line_num&amp;gt;&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;Break at source file &amp;amp; line : &lt;code&gt;break &amp;lt;src_file&amp;gt;.c &amp;lt;line_num&amp;gt;&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;Show Breakpoints : &lt;code&gt;info breakpoints&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;Remove Particular breakpoint : &lt;code&gt;delete &amp;lt;index&amp;gt;&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;Toggle breakpoints : &lt;code&gt;enable &amp;lt;index&amp;gt;&lt;/code&gt; or &lt;code&gt;disable &amp;lt;index&amp;gt;&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;Remove all breakpoints: &lt;code&gt;delete&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;Remove breakpoints in func : &lt;code&gt;clear &amp;lt;func_name&amp;gt;&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;Remove brekapoints at line : &lt;code&gt;clear &amp;lt;line_num&amp;gt;&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Running/Stepping&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Start execution : &lt;code&gt;run&lt;/code&gt; or &lt;code&gt;r&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;Continue execution :  &lt;code&gt;cont&lt;/code&gt; or &lt;code&gt;c&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;Line by line execution :  &lt;code&gt;step&lt;/code&gt; or &lt;code&gt;s&lt;/code&gt; (will step-into functions)&lt;/li&gt;
-&lt;li&gt;Line by line execution : &lt;code&gt;next&lt;/code&gt; or &lt;code&gt;n&lt;/code&gt; (will step-over functions)&lt;/li&gt;
-&lt;li&gt;Run next few lines : &lt;code&gt;next &amp;lt;count&amp;gt;&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;Stop program : &lt;code&gt;kill&lt;/code&gt; or &lt;code&gt;^C&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Callstack &amp;amp; State&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;View stack trace : &lt;code&gt;backtrace&lt;/code&gt; or &lt;code&gt;bt&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;View current state : &lt;code&gt;frame&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;View local variables : &lt;code&gt;info locals&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;View CLI args : &lt;code&gt;info args&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;View Global and Static vars : &lt;code&gt;info variables&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;View variable : &lt;code&gt;print &amp;lt;var_name&amp;gt;&lt;/code&gt; (&lt;code&gt;print/x&lt;/code&gt; to view as hex)&lt;/li&gt;
-&lt;li&gt;View arrays : &lt;code&gt;print &amp;lt;arr&amp;gt;[&amp;lt;idx&amp;gt;]&lt;/code&gt; or &lt;code&gt;print *&amp;lt;arr&amp;gt;@&amp;lt;size&amp;gt;&lt;/code&gt; &lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;View Source&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;View code around current point : &lt;code&gt;list&lt;/code&gt; or &lt;code&gt;l&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;View code around line : &lt;code&gt;list &amp;lt;line&amp;gt;&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;View code in func : &lt;code&gt;list &amp;lt;file&amp;gt;:&amp;lt;func&amp;gt;&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;em&gt;Notes/Links&lt;/em&gt;&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;https://beej.us/guide/bggdb/
-https://linux.die.net/man/1/gdb
-https://web.mit.edu/gnu/doc/html/gdb_toc.html
-https://courses.cs.washington.edu/courses/cse378/97au/help/gdb-intro.html
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content><category term="misc"></category><category term="programming"></category><category term="debugging"></category><category term="gdb"></category></entry></feed>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Bhargav's Homepage - misc</title><link href="https://bhargavbhat.me/" rel="alternate"></link><link href="https://bhargavbhat.me/feeds/misc.atom.xml" rel="self"></link><id>https://bhargavbhat.me/</id><updated>2017-11-25T14:42:00+05:30</updated><entry><title>Holiday in Andaman Islands</title><link href="https://bhargavbhat.me/holiday-in-andaman-islands.html" rel="alternate"></link><published>2017-11-25T14:42:00+05:30</published><updated>2017-11-25T14:42:00+05:30</updated><author><name>Bhargav Bhat</name></author><id>tag:bhargavbhat.me,2017-11-25:/holiday-in-andaman-islands.html</id><summary type="html">&lt;p&gt;Photos from our 6D/5N holiday in Andaman Islands&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;em&gt;Selected photos from 6D/5N trip to Andaman Islands covering Port Blair - Havelock - Neil - Port Blair&lt;/em&gt;&lt;/p&gt;
+&lt;h3&gt;Day 1 : Arrival in Port Blair &amp;amp; Visit to Cellular Jail&lt;/h3&gt;
+&lt;p&gt;&lt;img alt="Day 1" src="https://bhargavbhat.me/images/andamans/day1_landing.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Day 1" src="https://bhargavbhat.me/images/andamans/day1_cellularjail1.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Day 1" src="https://bhargavbhat.me/images/andamans/day1_cellularjail2.jpg"&gt;&lt;/p&gt;
+&lt;h3&gt;Day 2 : Ferry to Havelock Island - Visit Elephant Island, Snorkelling, Sea Walk &amp;amp; Visit Radhanagar Beach&lt;/h3&gt;
+&lt;p&gt;&lt;img alt="Day 2" src="https://bhargavbhat.me/images/andamans/day2_boat2havelock.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Day 2" src="https://bhargavbhat.me/images/andamans/day2_havelock_elephantisland.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Day 2" src="https://bhargavbhat.me/images/andamans/day2_havelock_snorkel1.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Day 2" src="https://bhargavbhat.me/images/andamans/day2_havelock_snorkel2.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Day 2" src="https://bhargavbhat.me/images/andamans/day2_havelock_radhanagar.jpg"&gt;&lt;/p&gt;
+&lt;h3&gt;Day 3 : Ferry to Neil Island - Visit Bharatpur Beach &amp;amp; Rock Formation&lt;/h3&gt;
+&lt;p&gt;&lt;img alt="Day 3" src="https://bhargavbhat.me/images/andamans/day3_neil_beach.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Day 3" src="https://bhargavbhat.me/images/andamans/day3_neil.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Day 3" src="https://bhargavbhat.me/images/andamans/day3_neil_bharatpur.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Day 3" src="https://bhargavbhat.me/images/andamans/day3_neil_crab_bharatpur.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Day 3" src="https://bhargavbhat.me/images/andamans/day3_neil_mangroves_jetty.jpg"&gt;&lt;/p&gt;
+&lt;h3&gt;Days 4 &amp;amp; 5 : Ferry to Port Blair - Visit Ross Island, Corbyn Beach&lt;/h3&gt;
+&lt;p&gt;&lt;img alt="Day 5" src="https://bhargavbhat.me/images/andamans/day5_pb.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Day 5" src="https://bhargavbhat.me/images/andamans/day5_ross_island.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Day 5" src="https://bhargavbhat.me/images/andamans/day5_ross_beach.jpg"&gt;&lt;/p&gt;
+&lt;h3&gt;Day 6 : Visit Chatham Island &amp;amp; Departure&lt;/h3&gt;
+&lt;p&gt;&lt;img alt="Day 6" src="https://bhargavbhat.me/images/andamans/day6_cobyn.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Day 6" src="https://bhargavbhat.me/images/andamans/day6_chatham.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Day 6" src="https://bhargavbhat.me/images/andamans/day6_depart.jpg"&gt;&lt;/p&gt;</content><category term="misc"></category><category term="holiday"></category><category term="andaman"></category></entry><entry><title>Holiday in Kerala</title><link href="https://bhargavbhat.me/holiday-in-kerala.html" rel="alternate"></link><published>2016-01-15T11:33:00+05:30</published><updated>2016-01-15T11:33:00+05:30</updated><author><name>Bhargav Bhat</name></author><id>tag:bhargavbhat.me,2016-01-15:/holiday-in-kerala.html</id><summary type="html">&lt;p&gt;Photos from our 5D/4N holiday in Kerala&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;em&gt;Selected photos from 5D/4N trip to Kerala covering Kochi - Munnar - Thekkady - Allepey - Kochi&lt;/em&gt;&lt;/p&gt;
+&lt;h3&gt;Day 1 : Arrival in Kochi and Drive to Munnar&lt;/h3&gt;
+&lt;p&gt;&lt;img alt="Day 1" src="https://bhargavbhat.me/images/kerala/day1_munnar_enroute.jpg"&gt;&lt;/p&gt;
+&lt;h3&gt;Day 2 : Munnar Local Sightseeing&lt;/h3&gt;
+&lt;p&gt;&lt;img alt="Day 2" src="https://bhargavbhat.me/images/kerala/day2_munnar_cactus.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Day 2" src="https://bhargavbhat.me/images/kerala/day2_munnar_flowers.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Day 2" src="https://bhargavbhat.me/images/kerala/day2_munnar_tea_estate.jpg"&gt;&lt;/p&gt;
+&lt;h3&gt;Day 3 : Munnar to Thekkady Drive &amp;amp; Kathakali Show in Thekkady&lt;/h3&gt;
+&lt;p&gt;&lt;img alt="Day 3" src="https://bhargavbhat.me/images/kerala/day3_thekkady_kathakali.jpg"&gt;&lt;/p&gt;
+&lt;h3&gt;Day 4 : Thekkady to Allepey Drive &amp;amp; Houseboat Stay&lt;/h3&gt;
+&lt;p&gt;&lt;img alt="Day 4" src="https://bhargavbhat.me/images/kerala/day4_allepey_boats.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Day 4" src="https://bhargavbhat.me/images/kerala/day4_allepey_backwaters.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Day 4" src="https://bhargavbhat.me/images/kerala/day4_allepey_houseboat.jpg"&gt;&lt;/p&gt;
+&lt;h3&gt;Day 5 : Allepey to Kochi &amp;amp; Departure&lt;/h3&gt;
+&lt;p&gt;&lt;img alt="Day 5" src="https://bhargavbhat.me/images/kerala/day5_allepey_return.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Day 5" src="https://bhargavbhat.me/images/kerala/day5_kochi_fishing_nets.jpg"&gt;&lt;/p&gt;</content><category term="misc"></category><category term="holiday"></category><category term="kerala"></category></entry></feed>
