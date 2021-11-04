@@ -1,6 +1,6 @@
 Title: Intro to vim - Session 1 Notes
 Date: 2012-08-15 09:17
-Category: misc
+Category: tools
 Tags: vim, editor
 Authors: Bhargav Bhat
 Summary: Notes from 1st Session of introduction to vim
