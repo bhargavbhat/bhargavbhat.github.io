@@ -1,9 +1,9 @@
-Title: C++ 14 : The new stuff
+Title: C++ 17 Features
 Date: 2018-01-26 19:57
 Category: programming
 Tags: cpp, cpp11, til
 Authors: Bhargav Bhat
-Summary: TIL about the C++17 release
+Summary: TIL about the C++17 release and some of the new features in the language and the STL
 
 Sometime last year the C++17 standard was finalized, although there weren't too many new features in the language itself that were relevant to an application developer focused on embedded and resource constrained development, there were three that stood out:
 
